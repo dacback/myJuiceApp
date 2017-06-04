@@ -60,3 +60,18 @@ Fruit.prototype.removeSkin = function(){
 
 console.log(apple.removeSkin());
 
+
+// code below creates a Vegetable object that inherits from Food... and creates a new 
+// instance of carrot from Vegetable object
+
+function Vegetable() {
+  this.wash = function() {
+      console.log('vegetables are being washed');
+    };
+  Food.apply(this, arguments);
+  }
+
+Vegetable.prototype = new Food();
+
+var carrot = new Vegetable();
+
