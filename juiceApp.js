@@ -1,10 +1,12 @@
 function Food(name) {
 	this.name = name;
 
-	this.foodJuicer = function(){
-		console.log('Measure and add ' + this.name + " to the juicer" );
 	}
 
+}
+
+Food.prototype.juicer = function() {
+	console.log('Measure and add ' + this.name + " to the juicer" );
 }
 
 // code below creates Fruit object that inherits from Food
@@ -48,13 +50,13 @@ Fruit.prototype.removeSkin = function(){
   var item = " ";
   
   if(Array.isArray(nameArr)){
-      for (var i = 0; i <= nameArr.length; i++){
+      for (var i = 0; i < nameArr.length; i++){
          item += nameArr[i] + ", " ;
     }
-      console.log('Apples cannot be juiced until their skin is removed. Be careful!' + '\nFavorite of these fruits to juice are' + item + '.');
+      console.log('Apples cannot be juiced until their skin is removed. Therefore skin is being removed.' + '\nVariety of these fruits to juice are' + item + '.');
   } else {
     
-    console.log('Favorite apple to juice is ' + this.name + '.');
+    console.log('Apple cannot be juiced until it\'s skin is removed. Therefore skin is being removed.' + '\nThis type ' + item + ', is a good fruit to juice');
   }
 };
 
@@ -74,4 +76,26 @@ function Vegetable() {
 Vegetable.prototype = new Food();
 
 var carrot = new Vegetable();
+
+
+// Code below is Part II of Assignment
+
+//Code below creates an array of two categories of Apples. Popular and unPopular apples;
+
+var popApples = ['Golden Delicious', 'Red Delicious','Gala','Granny Smith','Empire'];
+var unPopApples = ['Macintosh', 'Washington', 'Braeburn', 'Gravenstein']
+
+var favApples = new Fruit(popApples);
+var nonFavApples = new Fruit(unPopApples);
+
+
+//Code below says name of each Apple in Array
+console.log(favApples.name)
+console.log(nonFavApples.name)
+
+
+// code below runs juice method on each category of apples
+
+console.log(popularApples.juicer());
+console.log(unpopularApples.juicer());
 
